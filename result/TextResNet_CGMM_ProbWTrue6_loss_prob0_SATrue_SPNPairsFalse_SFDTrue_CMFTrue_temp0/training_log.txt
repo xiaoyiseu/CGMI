@@ -1,0 +1,56 @@
+2025-01-18 10:37:12,987 - Epoch: 001, train loss: 0.7836, val loss: 0.6295, val_severity_acc: 0.8299, val_depart_acc: 0.8911, time: 31.16 s
+2025-01-18 10:37:30,333 - Epoch: 002, train loss: 0.6221, val loss: 0.6069, val_severity_acc: 0.8303, val_depart_acc: 0.8969, time: 17.35 s
+2025-01-18 10:37:46,281 - Epoch: 003, train loss: 0.6006, val loss: 0.5947, val_severity_acc: 0.8327, val_depart_acc: 0.9001, time: 15.95 s
+2025-01-18 10:38:02,126 - Epoch: 004, train loss: 0.5898, val loss: 0.5963, val_severity_acc: 0.8351, val_depart_acc: 0.9019, time: 15.85 s
+2025-01-18 10:38:17,928 - Epoch: 005, train loss: 0.5823, val loss: 0.6072, val_severity_acc: 0.8340, val_depart_acc: 0.8927, time: 15.80 s
+2025-01-18 10:38:33,713 - Epoch: 006, train loss: 0.5735, val loss: 0.5905, val_severity_acc: 0.8299, val_depart_acc: 0.8998, time: 15.79 s
+2025-01-18 10:38:49,825 - Epoch: 007, train loss: 0.5648, val loss: 0.5935, val_severity_acc: 0.8343, val_depart_acc: 0.9003, time: 16.11 s
+2025-01-18 10:39:05,644 - Epoch: 008, train loss: 0.5599, val loss: 0.5950, val_severity_acc: 0.8361, val_depart_acc: 0.8990, time: 15.82 s
+2025-01-18 10:39:21,561 - Epoch: 009, train loss: 0.5530, val loss: 0.5993, val_severity_acc: 0.8354, val_depart_acc: 0.8995, time: 15.92 s
+2025-01-18 10:39:37,785 - Epoch: 010, train loss: 0.5479, val loss: 0.6018, val_severity_acc: 0.8264, val_depart_acc: 0.8996, time: 16.22 s
+2025-01-18 10:39:53,610 - Epoch: 011, train loss: 0.5407, val loss: 0.5955, val_severity_acc: 0.8331, val_depart_acc: 0.9006, time: 15.83 s
+2025-01-18 10:40:09,526 - Epoch: 012, train loss: 0.5348, val loss: 0.6035, val_severity_acc: 0.8334, val_depart_acc: 0.9010, time: 15.92 s
+2025-01-18 10:40:25,336 - Epoch: 013, train loss: 0.5282, val loss: 0.6094, val_severity_acc: 0.8334, val_depart_acc: 0.8993, time: 15.81 s
+2025-01-18 10:40:41,177 - Training Finished! Early stopping at epoch 14
+2025-01-18 10:40:41,177 - Best model found at epoch 4. 
+Train Loss: 0.5898, Val Loss: 0.5963, Val Severity Acc: 0.8351, Val Depart Acc: 0.9019, Combined Score: 0.9253
+2025-01-18 12:55:10,249 - Epoch: 001, train loss: 0.7917, val loss: 0.6583, val_severity_acc: 0.8179, val_depart_acc: 0.8901, time: 78.05 s
+2025-01-18 12:55:20,994 - Epoch: 002, train loss: 0.6387, val loss: 0.6200, val_severity_acc: 0.8291, val_depart_acc: 0.8929, time: 10.72 s
+2025-01-18 12:55:31,636 - Epoch: 003, train loss: 0.6209, val loss: 0.6197, val_severity_acc: 0.8232, val_depart_acc: 0.8962, time: 10.64 s
+2025-01-18 12:55:42,278 - Epoch: 004, train loss: 0.6106, val loss: 0.6143, val_severity_acc: 0.8332, val_depart_acc: 0.8951, time: 10.64 s
+2025-01-18 12:55:52,853 - Epoch: 005, train loss: 0.6028, val loss: 0.6189, val_severity_acc: 0.8327, val_depart_acc: 0.8932, time: 10.58 s
+2025-01-18 12:56:03,452 - Epoch: 006, train loss: 0.6095, val loss: 0.6098, val_severity_acc: 0.8370, val_depart_acc: 0.8946, time: 10.60 s
+2025-01-18 12:56:14,071 - Epoch: 007, train loss: 0.6043, val loss: 0.6197, val_severity_acc: 0.8345, val_depart_acc: 0.8934, time: 10.62 s
+2025-01-18 12:56:24,643 - Epoch: 008, train loss: 0.6080, val loss: 0.6160, val_severity_acc: 0.8320, val_depart_acc: 0.8931, time: 10.57 s
+2025-01-18 12:56:35,236 - Epoch: 009, train loss: 0.6099, val loss: 0.6226, val_severity_acc: 0.8307, val_depart_acc: 0.8903, time: 10.59 s
+2025-01-18 12:56:45,820 - Epoch: 010, train loss: 0.6083, val loss: 0.6140, val_severity_acc: 0.8347, val_depart_acc: 0.8972, time: 10.58 s
+2025-01-18 12:56:56,425 - Epoch: 011, train loss: 1.3285, val loss: 1.9388, val_severity_acc: 0.7388, val_depart_acc: 0.4746, time: 10.61 s
+2025-01-18 12:57:07,041 - Epoch: 012, train loss: 1.9078, val loss: 1.9533, val_severity_acc: 0.7388, val_depart_acc: 0.4746, time: 10.62 s
+2025-01-18 12:57:17,557 - Epoch: 013, train loss: 1.8341, val loss: 1.6158, val_severity_acc: 0.7388, val_depart_acc: 0.6139, time: 10.51 s
+2025-01-18 12:57:28,105 - Epoch: 014, train loss: 1.6480, val loss: 1.6033, val_severity_acc: 0.7388, val_depart_acc: 0.6220, time: 10.55 s
+2025-01-18 12:57:38,677 - Epoch: 015, train loss: 1.6403, val loss: 1.6021, val_severity_acc: 0.7388, val_depart_acc: 0.6292, time: 10.57 s
+2025-01-18 12:57:49,301 - Epoch: 016, train loss: 1.5956, val loss: 1.6012, val_severity_acc: 0.7388, val_depart_acc: 0.6136, time: 10.62 s
+2025-01-18 12:57:59,873 - Epoch: 017, train loss: 1.6314, val loss: 1.6031, val_severity_acc: 0.7388, val_depart_acc: 0.6117, time: 10.57 s
+2025-01-18 12:58:10,578 - Epoch: 018, train loss: 1.6020, val loss: 1.6009, val_severity_acc: 0.7388, val_depart_acc: 0.6118, time: 10.70 s
+2025-01-18 12:58:21,154 - Epoch: 019, train loss: 1.6087, val loss: 1.6013, val_severity_acc: 0.7388, val_depart_acc: 0.6119, time: 10.58 s
+2025-01-18 12:58:31,738 - Training Finished! Early stopping at epoch 20
+2025-01-18 12:58:31,739 - Best model found at epoch 10. 
+Train Loss: 0.6083, Val Loss: 0.6140, Val Severity Acc: 0.8347, Val Depart Acc: 0.8972, Combined Score: 0.9244
+2025-01-18 14:54:30,333 - Epoch: 001, train loss: 0.7839, val loss: 0.6227, val_severity_acc: 0.8327, val_depart_acc: 0.8931, time: 34.14 s
+2025-01-18 14:54:46,928 - Epoch: 002, train loss: 0.6181, val loss: 0.6037, val_severity_acc: 0.8354, val_depart_acc: 0.8958, time: 16.58 s
+2025-01-18 14:55:03,515 - Epoch: 003, train loss: 0.5998, val loss: 0.5941, val_severity_acc: 0.8374, val_depart_acc: 0.8997, time: 16.59 s
+2025-01-18 14:55:19,822 - Epoch: 004, train loss: 0.5879, val loss: 0.5916, val_severity_acc: 0.8358, val_depart_acc: 0.8993, time: 16.31 s
+2025-01-18 14:55:36,511 - Epoch: 005, train loss: 0.5787, val loss: 0.5981, val_severity_acc: 0.8356, val_depart_acc: 0.8922, time: 16.69 s
+2025-01-18 14:55:52,836 - Epoch: 006, train loss: 0.5708, val loss: 0.5859, val_severity_acc: 0.8371, val_depart_acc: 0.9030, time: 16.33 s
+2025-01-18 14:56:09,463 - Epoch: 007, train loss: 0.5641, val loss: 0.5856, val_severity_acc: 0.8393, val_depart_acc: 0.9005, time: 16.63 s
+2025-01-18 14:56:26,217 - Epoch: 008, train loss: 0.5559, val loss: 0.5971, val_severity_acc: 0.8338, val_depart_acc: 0.8981, time: 16.75 s
+2025-01-18 14:56:42,308 - Epoch: 009, train loss: 0.5519, val loss: 0.5918, val_severity_acc: 0.8376, val_depart_acc: 0.8994, time: 16.09 s
+2025-01-18 14:56:58,480 - Epoch: 010, train loss: 0.5456, val loss: 0.5961, val_severity_acc: 0.8345, val_depart_acc: 0.9006, time: 16.17 s
+2025-01-18 14:57:14,635 - Epoch: 011, train loss: 0.5399, val loss: 0.5977, val_severity_acc: 0.8327, val_depart_acc: 0.9025, time: 16.15 s
+2025-01-18 14:57:30,927 - Epoch: 012, train loss: 0.5322, val loss: 0.5994, val_severity_acc: 0.8326, val_depart_acc: 0.9004, time: 16.29 s
+2025-01-18 14:57:47,216 - Epoch: 013, train loss: 0.5243, val loss: 0.6084, val_severity_acc: 0.8363, val_depart_acc: 0.8983, time: 16.29 s
+2025-01-18 14:58:03,751 - Epoch: 014, train loss: 0.5202, val loss: 0.6076, val_severity_acc: 0.8317, val_depart_acc: 0.8985, time: 16.53 s
+2025-01-18 14:58:20,209 - Epoch: 015, train loss: 0.5152, val loss: 0.6109, val_severity_acc: 0.8333, val_depart_acc: 0.8998, time: 16.46 s
+2025-01-18 14:58:36,269 - Training Finished! Early stopping at epoch 16
+2025-01-18 14:58:36,269 - Best model found at epoch 6. 
+Train Loss: 0.5708, Val Loss: 0.5859, Val Severity Acc: 0.8371, Val Depart Acc: 0.9030, Combined Score: 0.9274
