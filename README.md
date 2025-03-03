@@ -12,12 +12,13 @@ pillow 10.3.0
 ```
 
 ## Training & Testing
-
+```
 python train.py
 python test.py
-
+```
 
 ## Result
-Metric	accuracy	f1_macro	kappa	precision	sensitivity	specificity
-Severity	0.8483	0.8477	0.6142	0.8511	0.8483	0.8511
-Department	0.9089	0.9076	0.8587	0.9104	0.9089	0.9104
+| Metric| sensitivity | specificity |F1 score| kappa |
+|:----:| ----:|----:|----:|----:|
+| Severity| 0.8483 | 0.8511 | 0.8477 | 0.6142 |
+| Department| 0.9089 | 0.9104 | 0.9076 | 0.8587 | 
