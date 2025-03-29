@@ -27,6 +27,9 @@ def Result(meters, batch_size):
     return loss, acc_s, acc_d
 
 if __name__ == '__main__':
+    ''' 
+    A Novel ED Triage Framework Using Conditional Imputation, Multi-Scale Semantic Learning, and CrossModal Fusion
+    '''
     args = get_args()
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     train_loader, valid_loader, num_severity, num_department = Data_Indices(args)
