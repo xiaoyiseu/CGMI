@@ -2,7 +2,6 @@ import torch.nn as nn
 import torch.nn.functional as F
 import torch
 import os
-from utils import objectives
 
 import torch
 import os
@@ -231,48 +230,6 @@ class Transformer(nn.Module):
             
         severity_out = self.fc_severity(fusion_vs) 
         department_out = self.fc_department(fusion_cc) 
-        # ************************************************************************************
-        #                            loss  
-        # ************************************************************************************
-        if 'pdc' in self.current_task:
-            m_loss = objectives.infonce_loss(fusion_vs, fusion_cc, batch, self.args)
-            ret.update({'infoNCE loss': m_loss})  
-
-        # if 'pdc' in self.current_task:
-        #     m_loss = objectives.kl_loss(fusion_vs, fusion_cc, temperature= self.args.temp)
-        #     ret.update({'kl_loss': m_loss})                 
-
-        if 'pcl' in self.current_task:# Focal loss
-            focal_loss  = objectives.prob_loss(fusion_cc, label2, temperature= self.args.temp)         
-            # focal_loss  = objectives.contrastive_loss(fusion_cc, label2, temperature= self.args.temp)         
-            ret.update({'pcl_loss': focal_loss})
-
-        if 'ctl' in self.current_task:  
-            dpt_cls = batch['Dept_tokens'][:, 0, :].squeeze()  
-
-            embed_dim = dpt_cls.size(1)
-            self.linear_layer2 = nn.Linear(128, embed_dim).to(dpt_cls.device)
-            for param in self.linear_layer2.parameters():
-                param.requires_grad = False
-            cc_scaled_cls= self.linear_layer2(enc_cc_cls)#fusion_cc, enc_cc_cls
-            loss1  = objectives.cls_token_loss(cc_scaled_cls, dpt_cls,temperature= self.args.temp)
-            ret.update({'cont_loss': loss1})
-
-        if 'cmc' in self.current_task and batch['mode'] != 'test': #cross-moadal contrastive loss
-            vs_feat_weighted = CasualWeighted(batch['VS'], label1, 
-                                              n_iter=batch['n_iter'], 
-                                              mode=batch['mode'], 
-                                              save_dir="./weight/prob_matrices")
-            embed_dim2 = vs_feat_weighted.size(1)
-            self.linear_layer2 = nn.Linear(embed_dim2, 128).to(vs_feat_weighted.device)
-            for param in self.linear_layer2.parameters():
-                param.requires_grad = False
-            fusion1_vs_scaled= self.linear_layer2(vs_feat_weighted)
-            # print(fusion1_vs_scaled.shape, logit_vs.shape)
-
-            mcu_loss = objectives.contrastive_loss(fusion1_vs_scaled, logit_vs, label1,
-                                          temperature = self.args.temp)           
-            ret.update({'cmc_loss': mcu_loss}) 
         
         loss_s = self.CEL(severity_out, label1)
         loss_d = self.CEL(department_out, label2)          
