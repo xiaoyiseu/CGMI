@@ -6,27 +6,6 @@ import os
 import torch
 import os
 
-def CasualWeighted(vs_data, labels, n_iter=None, save_dir="prob_matrices", mode="train"):
-    save_dir = os.path.join(save_dir, mode)
-    os.makedirs(save_dir, exist_ok=True)
-    save_path = os.path.join(save_dir, f"prob_matrix_batch_{n_iter}.pt")
-    
-    if os.path.exists(save_path):
-        prob_matrix = torch.load(save_path)
-    else:
-        num_classes = labels.unique().numel()
-        n_feat = vs_data.shape[1]
-        prob_matrix = torch.zeros_like(vs_data, dtype=torch.float)
-        for label in range(num_classes):
-            vs_subset = vs_data[labels == label]
-            for col in range(n_feat):
-                unique_vals, counts = vs_subset[:, col].unique(return_counts=True)
-                probs = counts.float() / vs_subset.shape[0]
-                for val, prob in zip(unique_vals, probs):
-                    mask = (vs_data[:, col] == val) & (labels == label)
-                    prob_matrix[mask, col] = prob
-        torch.save(prob_matrix, save_path)
-    return vs_data * prob_matrix
 
 class FeatureExtractor(nn.Module):
     def __init__(self, input_dim, hidden_dim, output_dim, num_layers=1):
@@ -44,10 +23,6 @@ class FeatureExtractor(nn.Module):
         lstm_out, _ = self.lstm(x) 
         output = self.fc(lstm_out[:, -1, :]) 
         return output
-
-
-
-
 
 class MultiHeadAttention(nn.Module):
     def __init__(self, input_dim, num_heads, dropout=0.1):
