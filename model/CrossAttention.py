@@ -243,59 +243,6 @@ class Transformer(nn.Module):
                     'correct_d': correct_d})
         return ret, severity_out, department_out
 
-def Resample(data, labels, n_dim = 128):
-    unique_labels = torch.unique(labels)
-    all_means = []
-    all_vars = []
-    for label in unique_labels:
-        category_data = data[labels == label]  # 直接获取该类别所有的样本
-        mean = category_data.mean(dim=1)  # (num_samples_in_category, n_feat1)
-        var = category_data.var(dim=1, unbiased=False)  # (num_samples_in_category, n_feat1)
-        all_means.append(mean)
-        all_vars.append(var)
-    all_means = torch.cat(all_means, dim=0)  # (B, n_feat1)
-    all_vars = torch.cat(all_vars, dim=0)    # (B, n_feat1)
-    distributions = torch.distributions.Normal(all_means, torch.sqrt(all_vars))
-    
-    sampled_features = distributions.sample((n_dim,))  # 生成形状为 (n_feat2, B, n_feat1)
-    sampled_features = sampled_features.transpose(0, 1)  # (B, n_feat2, n_feat1)
-    new_features = sampled_features.mean(dim=-1)  # (B, n_feat2)
-    return new_features
-
-def enhance_tokens(cls_embeddings, token_embeddings):
-    cls_norm = F.normalize(cls_embeddings, dim=-1)  # [batch_size, 1, dim]
-    tokens_norm = F.normalize(token_embeddings, dim=-1)  # [batch_size, seq_len, dim]
-    cosine_sim = torch.bmm(tokens_norm, cls_norm.transpose(1, 2))
-    attention_weights = F.softmax(cosine_sim, dim=1)  # [batch_size, seq_len, 1]
-    enhanced_tokens = token_embeddings * attention_weights  # [batch_size, seq_len, dim]
-    return enhanced_tokens
-
-def filter_tokens(cls_embeddings, token_embeddings, padding_mask=None, threshold=0.5):
-    enhanced_tokens = enhance_tokens(cls_embeddings, token_embeddings)
-    cls_norm = F.normalize(cls_embeddings, dim=-1)  # [batch_size, 1, dim]
-    enhanced_tokens_norm = F.normalize(enhanced_tokens, dim=-1)  # [batch_size, seq_len, dim]
- 
-    cosine_sim = torch.bmm(enhanced_tokens_norm, cls_norm.transpose(1, 2)).squeeze(-1)  # [batch_size, seq_len]
-    similarity_mask = cosine_sim >= threshold  # [batch_size, seq_len]
-    
-    if padding_mask is not None:
-        final_mask = similarity_mask & padding_mask.bool()  # 考虑 padding_mask
-    else:
-        final_mask = similarity_mask
-    return final_mask
-
-
-def statistics(data):
-    mask = (data != 0).float()
-    sum_mask = mask.sum(dim=-1)
-    sum_data = (data * mask).sum(dim=-1)
-    mean = sum_data / (sum_mask + 1e-8) 
-    squared_diff = (data - mean.unsqueeze(-1)) ** 2 
-    sum_squared_diff = (squared_diff * mask).sum(dim=-1) 
-    std = torch.sqrt(sum_squared_diff / sum_mask.clamp(min=1e-8)) 
-    stats = torch.stack((mean, std), dim=-1)
-    return stats
-
 class ResNet(nn.Module):
     def __init__(self, input_dim, output_dim):
         super(ResNet, self).__init__()
