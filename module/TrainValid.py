@@ -59,16 +59,8 @@ def extract_features(args, batch, modelVS):
     
     if args.ProbW:
         vs_feat_cw = FusionModule(args, batch)
-        # ChiefComp = batch['Dept_tokens'][:, 0, :].squeeze() 
-        # vs_feat_cw = MulSum(vs_feat_cw, ChiefComp)
-        # vs_feat_cw = CasualWeighted(VitalSign, batch['Level'])
-        # vs_feat_cw = MulSum(VitalSign, ChiefComp)
-        # vs_feat_cw = torch.cat((VitalSign, ChiefComp), dim=-1)
-        # vs_feat_cw = ChiefComp
     else:
-        VitalSign = batch['VS']
-        vs_feat_cw = VitalSign
-
+        vs_feat_cw = batch['VS']
     vs_feat = modelVS(vs_feat_cw) 
     return vs_feat
 
