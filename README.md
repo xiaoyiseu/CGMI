@@ -22,3 +22,17 @@ python test.py
 |:----:| ----:|----:|----:|----:|
 | Severity| 0.8483 | 0.8511 | 0.8477 | 0.6142 |
 | Department| 0.9089 | 0.9104 | 0.9076 | 0.8587 | 
+
+## Citation
+```
+@InProceedings{XiaYi_ANovel_MICCAI2025,
+        author = { Xiao, Yi and Zhang, Jun and Chi, Cheng and Wang, Chunyu},
+        title = { { A Novel ED Triage Framework Using Conditional Imputation, Multi-Scale Semantic Learning, and Cross-Modal Fusion } },
+        booktitle = {proceedings of Medical Image Computing and Computer Assisted Intervention -- MICCAI 2025},
+        year = {2025},
+        publisher = {Springer Nature Switzerland},
+        volume = {LNCS 15969},
+        month = {September},
+        page = {13 -- 22}
+}
+```
