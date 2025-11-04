@@ -29,10 +29,11 @@ python test.py
         author = { Xiao, Yi and Zhang, Jun and Chi, Cheng and Wang, Chunyu},
         title = { { A Novel ED Triage Framework Using Conditional Imputation, Multi-Scale Semantic Learning, and Cross-Modal Fusion } },
         booktitle = {proceedings of Medical Image Computing and Computer Assisted Intervention -- MICCAI 2025},
-        year = {2025},
+        year = {2026},
         publisher = {Springer Nature Switzerland},
-        volume = {LNCS 15969},
+        volume = {LNCS vol 15969},
         month = {September},
         page = {13 -- 22}
 }
 ```
+
